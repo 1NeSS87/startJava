@@ -1,17 +1,26 @@
 public class Cycle {
-	public static void main (String[] args) {
-		int dva = 6;
-		int tri = 8;
-		for (int i=0; i<=20; i++) {
-			System.out.println ("Первый пошел "+i);
+	public static void main(String[] args) {
+
+		for (int i = 0; i <= 20; i++) {
+			System.out.println ("Первый пошел " + i);
 		}
-		while(dva>-7) {
-			System.out.println ("Второй пошел "+dva);
-			dva--;
+
+		int second = 6;
+
+		while(second > -7) {
+			System.out.println ("Второй пошел " + second);
+			second = second - 2;
 		}
+
+		int third = 9;
+		int sum = 0;
+
 		do {
-			tri=tri+2;
-			System.out.println ("Третий пошел "+tri);
-		} while (tri < 20);
+			third++;
+			if (third % 2 != 0) {
+				sum = sum + third;
+			}
+		} while (third < 20 );
+		System.out.println ("Третий пошел " + sum);
 	}
 }
