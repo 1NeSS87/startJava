@@ -1,11 +1,11 @@
 public class Unicode {
 	
 	public static void main(String[] args) {
-		char i = 33;
+		char symbol = 33;
 
-		while (i <= 126) {
-			System.out.print(i + " ");
-			i++;
+		while (symbol <= 126) {
+			System.out.print(symbol + " ");
+			symbol++;
 		}
 	}
 }
