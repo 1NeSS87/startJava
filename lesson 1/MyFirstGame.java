@@ -1,20 +1,18 @@
 public class MyFirstGame {
 	
 	public static void main(String[] args) {
-		int comp = 50;
-		int user = 77;
+		int compNumber = 50;
+		int userNumber = 20;
 
 		do {
-			if (user == comp) {
-				System.out.println("You win! " + user);
-				break;
-			} else if (user < comp) {
-				System.out.println(user + " The number you entered is less");
-				user++;
-			} else {
-			System.out.println(user + " The number you entered is greater");
-				user--;
+			if (userNumber < compNumber) {
+				System.out.println(userNumber + " The number you entered is less");
+				userNumber++;
+			} else if (userNumber > compNumber) {
+			System.out.println(userNumber + " The number you entered is greater");
+				userNumber--;
 			}
-		} while (user > 0 & user < 100);
+		} while (userNumber != compNumber);
+		System.out.println("You win! " + userNumber);
 	}
 }
