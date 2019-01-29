@@ -4,15 +4,16 @@ public class MyFirstGame {
 		int compNumber = 50;
 		int userNumber = 20;
 
-		do {
-			if (userNumber < compNumber) {
+		while(userNumber != compNumber) {
+			if(userNumber < compNumber) {
 				System.out.println(userNumber + " The number you entered is less");
 				userNumber++;
-			} else if (userNumber > compNumber) {
+			} if(userNumber > compNumber) {
 			System.out.println(userNumber + " The number you entered is greater");
 				userNumber--;
 			}
-		} while (userNumber != compNumber);
+		} 
+
 		System.out.println("You win! " + userNumber);
 	}
 }
