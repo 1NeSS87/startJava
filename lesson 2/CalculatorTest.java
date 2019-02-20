@@ -16,7 +16,7 @@ public class CalculatorTest {
 
 			System.out.println("Enter the second number: ");
 			myCalculator.setNumber2(scanner.nextInt());
-			System.out.println("Total: " + myCalculator.calculation());
+			System.out.println("Total: " + myCalculator.calculate());
 
 			do {
 				System.out.println("Want to continue? [Yes/No]");

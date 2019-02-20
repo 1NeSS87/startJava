@@ -18,27 +18,27 @@ public class Calculator {
 
 	int calculation;
 
-	public int calculation() {
+	public int calculate() {
 		switch(operation) {
 			case '+': 
-			return number1 + number2;
+				return number1 + number2;
 			case '-': 
-			return number1 - number2;
+				return number1 - number2;
 			case '*': 
-			return number1 * number2;
+				return number1 * number2;
 			case '/': 
-			return number1 / number2;
+				return number1 / number2;
 			case '%': 
-			return number1 % number2;
+				return number1 % number2;
 			case '^': 
-			int power = 1;
-			for(int i = 1; i <= number2; i++) {
-				power *= number1;
-			}
-			return power;
+				int power = 1;
+				for(int i = 1; i <= number2; i++) {
+					power *= number1;
+				}
+				return power;
 			default: 
-			System.out.println("Incorrect operation entered");
-			break;
+				System.out.println("Incorrect operation entered");
+				break;
 		}
 		return calculation;
 	}
