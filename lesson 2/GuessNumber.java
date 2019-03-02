@@ -8,7 +8,7 @@ public class GuessNumber {
 	private Player firstPlayer;
 	private Player secondPlayer;
 	private int compNumber;
-	private boolean win;
+	private boolean isWin;
 
 	public GuessNumber(Player firstPlayer, Player secondPlayer) {
 		this.firstPlayer = firstPlayer;
@@ -16,15 +16,15 @@ public class GuessNumber {
 	}
 
 	public void startGame() {
-		win = false;
+		isWin = false;
 		compNumber = random.nextInt(100);
 		
 		do {
 			enterNumber(firstPlayer);
-			hiddenNumber(firstPlayer);
+			checkNumber(firstPlayer);
 			enterNumber(secondPlayer);
-			hiddenNumber(secondPlayer);
-		} while(!win);
+			checkNumber(secondPlayer);
+		} while(!isWin);
 	}
 
 	public void enterNumber(Player player) {
@@ -32,10 +32,10 @@ public class GuessNumber {
 		player.setNumber(scan.nextInt());
 	}
 
-	public void hiddenNumber(Player player) {
+	public void checkNumber(Player player) {
 		if(player.getNumber() == compNumber) {
 			System.out.println("You win");
-			win = true;
+			isWin = true;
 		} else if(player.getNumber() < compNumber) {
 			System.out.println(player.getName() + " The number you entered is less");
 		} else if(player.getNumber() > compNumber) {

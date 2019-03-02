@@ -12,7 +12,6 @@ public class GuessNumberTest {
 		Player secondPlayer = new Player(scan.next());
 
 		GuessNumber myGame = new GuessNumber(firstPlayer, secondPlayer);
-
 		String answer;
 
 		do {
@@ -22,7 +21,6 @@ public class GuessNumberTest {
 				System.out.println("Want to continue? [Yes/No]");
 				answer = scan.next();
 			} while(!answer.equals("Yes") && !answer.equals("No"));
-
 		} while(answer.equals("Yes"));
 	}
 }
