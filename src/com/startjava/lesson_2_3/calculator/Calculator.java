@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3.calculator;
 
+import static java.lang.Math.*;
+
 public class Calculator {
 	
 	private int number1;
@@ -23,21 +25,17 @@ public class Calculator {
 	public int calculate() {
 		switch(operation) {
 			case '+': 
-				return Math.addExact(number1, number2);
+				return addExact(number1, number2);
 			case '-': 
-				return Math.subtractExact(number1,number2);
+				return subtractExact(number1,number2);
 			case '*': 
-				return Math.multiplyExact(number1, number2);
+				return multiplyExact(number1, number2);
 			case '/': 
 				return number1 / number2;
 			case '%': 
 				return Math.floorMod(number1, number2);
 			case '^':
-				int power = 1;
-				for(int i = 1; i <= number2; i++) {
-					power *= number1;
-				}
-				return power;
+				return (int) pow(number1, number2);
 			default: 
 				System.out.println("Incorrect operation entered");
 				break;
