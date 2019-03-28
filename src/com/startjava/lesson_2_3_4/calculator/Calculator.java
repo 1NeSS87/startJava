@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 import static java.lang.Math.*;
 
@@ -31,14 +31,13 @@ public class Calculator {
 			case '*': 
 				return multiplyExact(number1, number2);
 			case '/': 
-				return number1 / number2;
+				return floorDiv(number1, number2);
 			case '%': 
-				return Math.floorMod(number1, number2);
+				return floorMod(number1, number2);
 			case '^':
 				return (int) pow(number1, number2);
 			default: 
 				System.out.println("Incorrect operation entered");
-				break;
 		}
 		return calculation;
 	}
