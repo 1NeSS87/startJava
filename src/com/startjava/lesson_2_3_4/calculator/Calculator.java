@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.calculator;
 import static java.lang.Math.*;
 
 public class Calculator {
-	
+
 	private int number1;
 	private int number2;
 	private char operation;
@@ -20,23 +20,25 @@ public class Calculator {
 		this.operation = operation;
 	}
 
+	//int calculation;
+
 	public int calculate() {
 		switch(operation) {
-			case '+': 
+			case '+':
 				return addExact(number1, number2);
-			case '-': 
+			case '-':
 				return subtractExact(number1,number2);
-			case '*': 
+			case '*':
 				return multiplyExact(number1, number2);
-			case '/': 
+			case '/':
 				return floorDiv(number1, number2);
-			case '%': 
+			case '%':
 				return floorMod(number1, number2);
 			case '^':
 				return (int) pow(number1, number2);
-			default: 
+			default:
 				System.out.println("Incorrect operation entered");
 		}
-	return calculate();
+	return 0;
 	}
 }
