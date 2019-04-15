@@ -19,28 +19,32 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        compNumber = random.nextInt(101);
+        compNumber = random.nextInt(100);
 
-        do {
+        while(attempt != 10) {
             System.out.println("Попытка: " + (attempt + 1));
-            enterNumber(firstPlayer);
-            checkNumber(firstPlayer);
-            if (firstPlayer.getIsWin()) {
+
+            if (playGame(firstPlayer)) {
                 break;
             }
-            enterNumber(secondPlayer);
-            checkNumber(secondPlayer);
-            if (secondPlayer.getIsWin()) {
+
+            if (playGame(secondPlayer)) {
                 break;
             }
             attempt++;
+        }
 
-        } while (attempt != 10);
+        printResultGame(firstPlayer);
+        printResultGame(secondPlayer);
 
-        printResultGame();
+        setUp(firstPlayer);
+        setUp(secondPlayer);
+    }
 
-        cleanNumbers(firstPlayer);
-        cleanNumbers(secondPlayer);
+    private boolean playGame(Player player) {
+        enterNumber(player);
+        checkNumber(player);
+        return player.getIsWin();
     }
 
     private void enterNumber(Player player) {
@@ -49,49 +53,40 @@ public class GuessNumber {
     }
 
     private void checkNumber(Player player) {
-        if (player.getNumber() == compNumber) {
-            reportVictory(player);
+        if(player.getNumber() == compNumber) {
+            showAttemptWinner(player);
             player.setIsWin(true);
-        } else if (player.getNumber() < compNumber) {
+        } else if(player.getNumber() < compNumber) {
             System.out.println(player.getName() + " The number you entered is less");
-        } else if (player.getNumber() > compNumber) {
+        } else if(player.getNumber() > compNumber) {
             System.out.println(player.getName() + " The number you entered is greater");
         }
-        if (attempt == 9 && !player.getIsWin()) {
-            reportTheEndOfAttempts(player);
+        if(attempt == 9 && !player.getIsWin()) {
+            System.out.println("Dear " + player.getName() + ", your attempts have ended!");
         }
     }
 
-    private void reportVictory(Player player) {
+    private void showAttemptWinner(Player player) {
         System.out.println(player.getName() + " win");
         System.out.println("Player " + player.getName() + " guess the number " + player.getNumber() + " with " + (attempt + 1) + " attempt!");
     }
 
-    private void reportTheEndOfAttempts(Player player) {
-        System.out.println("Dear " + player.getName() + ", your attempts have ended!");
+   private void printResultGame(Player player) {
+        if(player.getIsWin()) {
+            printNumbers(player, attempt + 1);
+        } else {
+            printNumbers(player, attempt);
+        }
     }
 
     private void printNumbers(Player player, int attempt) {
         System.out.print("\n" + player.getName() + ": ");
-        int[] printAttempts = player.getNumbers(attempt);
-        System.out.print(Arrays.toString(printAttempts));
+        int[] playerAttempts = player.getNumbers(attempt);
+        System.out.print(Arrays.toString(playerAttempts));
     }
 
-    private void printResultGame() {
-        if (firstPlayer.getIsWin()) {
-            printNumbers(firstPlayer, attempt + 1);
-            printNumbers(secondPlayer, attempt);
-        } else if(secondPlayer.getIsWin()) {
-            printNumbers(firstPlayer, attempt + 1);
-            printNumbers(secondPlayer, attempt + 1);
-        }else {
-            printNumbers(firstPlayer, (attempt));
-            printNumbers(secondPlayer, (attempt));
-        }
-    }
-
-    private void cleanNumbers (Player player){
-            Arrays.fill(player.getNumbers(attempt), 0, (attempt), 0);
+    private void setUp(Player player){
+            Arrays.fill(player.getNumbers(attempt), 0, attempt, 0);
             player.setIsWin(false);
     }
 }
