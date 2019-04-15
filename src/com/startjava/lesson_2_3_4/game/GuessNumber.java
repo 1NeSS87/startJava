@@ -72,10 +72,10 @@ public class GuessNumber {
     }
 
    private void printResultGame(Player player) {
-        if(player.getIsWin()) {
-            printNumbers(player, attempt + 1);
-        } else {
+        if(!player.getIsWin()) {
             printNumbers(player, attempt);
+        } else {
+            printNumbers(player, attempt + 1);
         }
     }
 
