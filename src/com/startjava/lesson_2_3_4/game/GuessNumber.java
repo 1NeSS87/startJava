@@ -24,11 +24,11 @@ public class GuessNumber {
         while(attempt != 10) {
             System.out.println("Попытка: " + (attempt + 1));
 
-            if (playGame(firstPlayer)) {
+            if (makeAttempt(firstPlayer)) {
                 break;
             }
 
-            if (playGame(secondPlayer)) {
+            if (makeAttempt(secondPlayer)) {
                 break;
             }
             attempt++;
@@ -41,7 +41,7 @@ public class GuessNumber {
         setUp(secondPlayer);
     }
 
-    private boolean playGame(Player player) {
+    private boolean makeAttempt(Player player) {
         enterNumber(player);
         checkNumber(player);
         return player.getIsWin();

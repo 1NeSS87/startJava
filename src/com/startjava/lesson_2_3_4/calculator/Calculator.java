@@ -20,8 +20,6 @@ public class Calculator {
 		this.operation = operation;
 	}
 
-	//int calculation;
-
 	public int calculate() {
 		switch(operation) {
 			case '+':
@@ -39,6 +37,6 @@ public class Calculator {
 			default:
 				System.out.println("Incorrect operation entered");
 		}
-	return 0;
+		return 0;
 	}
 }
