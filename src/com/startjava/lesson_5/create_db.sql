@@ -1,7 +1,7 @@
-DROP TABLE "Jaegers";
+DROP TABLE Jaegers;
 
-CREATE TABLE "Jaegers" (
-    ID	INT PRIMARY KEY NOT NULL,
+CREATE TABLE Jaegers (
+    ID	INT SERIAL,
     modelName varchar(80) NOT NULL,
     mark varchar(80),
     height INT,
